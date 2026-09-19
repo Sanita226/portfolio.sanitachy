@@ -15,7 +15,7 @@ export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-dark-950 text-slate-100 selection:bg-emerald-500/30 selection:text-emerald-300 font-sans">
+    <div className="relative min-h-screen bg-white text-slate-900 selection:bg-emerald-600 selection:text-white font-sans">
       {/* Background Ambient Glow & Grid Effects */}
       <BackgroundEffects />
 

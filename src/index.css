@@ -9,72 +9,72 @@
   }
 
   body {
-    background-color: #060911;
-    color: #f1f5f9;
+    background-color: #f8fafc;
+    color: #1e293b;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
-  /* Custom modern scrollbar */
+  /* Custom Green & White scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: #060911;
+    background: #f1f5f9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 4px;
-    border: 2px solid #060911;
+    background: #6ee7b7;
+    border-radius: 6px;
+    border: 2px solid #f1f5f9;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: #10b981;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600;
   }
 
-  .text-gradient-purple {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400;
+  .text-gradient-dark {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-800;
   }
 
-  .text-gradient-white {
-    @apply bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-100 to-slate-400;
-  }
-
+  /* Premium White & Green Glass Panels */
   .glass-panel {
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(16, 185, 129, 0.16);
+    box-shadow: 0 10px 30px -10px rgba(5, 150, 105, 0.07);
   }
 
   .glass-panel-hover {
     @apply transition-all duration-300;
   }
   .glass-panel-hover:hover {
-    background: rgba(22, 34, 56, 0.75);
-    border-color: rgba(16, 185, 129, 0.3);
-    box-shadow: 0 12px 35px -10px rgba(16, 185, 129, 0.15);
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 16px 36px -10px rgba(5, 150, 105, 0.16);
+    transform: translateY(-3px);
   }
 
+  /* Subtle Green-tinted grid pattern on white */
   .grid-pattern {
-    background-size: 36px 36px;
+    background-size: 38px 38px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(5, 150, 105, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(5, 150, 105, 0.05) 1px, transparent 1px);
   }
 
   .dot-pattern {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(5, 150, 105, 0.12) 1.2px, transparent 1.2px);
     background-size: 24px 24px;
   }
 }
 
-/* Noise overlay utility */
+/* Subtle noise overlay */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -82,7 +82,7 @@
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.02;
+  opacity: 0.015;
   pointer-events: none;
   z-index: 99;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");

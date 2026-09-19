@@ -19,9 +19,8 @@ export default function Navbar({ onOpenResume }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 25);
 
-      // Active section detection using scroll position
       const sections = navLinks.map(link => document.getElementById(link.id));
       const scrollPosition = window.scrollY + 200;
 
@@ -51,8 +50,8 @@ export default function Navbar({ onOpenResume }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-950/80 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20 py-3.5'
-          : 'bg-transparent py-5'
+          ? 'bg-white/90 backdrop-blur-md border-b border-emerald-100 shadow-sm shadow-emerald-950/5 py-3'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -62,41 +61,38 @@ export default function Navbar({ onOpenResume }) {
           className="group flex items-center gap-2.5 text-left focus:outline-none"
           aria-label="Sanita Chaudhary - Home"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-glow-sm">
-            <div className="w-full h-full bg-dark-900 rounded-[10px] flex items-center justify-center font-mono font-bold text-emerald-400 text-sm">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-500 p-[2px] transition-transform duration-300 group-hover:scale-105 shadow-md shadow-emerald-600/20">
+            <div className="w-full h-full bg-white rounded-[9px] flex items-center justify-center font-mono font-bold text-emerald-700 text-sm">
               SC
             </div>
           </div>
           <div>
-            <div className="font-heading font-bold text-base tracking-tight text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+            <div className="font-heading font-bold text-base tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1.5">
               <span>Sanita Chaudhary</span>
-              <span className="text-xs px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono font-medium hidden sm:inline-block">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-mono font-semibold hidden sm:inline-block border border-emerald-200">
                 CSIT
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 font-mono leading-none hidden sm:block">
-              Godawari College • TU
+            <p className="text-[11px] text-slate-500 font-mono leading-none hidden sm:block">
+              Godawari College • TU, Nepal
             </p>
           </div>
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-dark-900/60 p-1.5 rounded-full border border-slate-800/60 backdrop-blur-sm shadow-inner shadow-black/40">
+        <nav className="hidden md:flex items-center gap-1 bg-white/80 p-1.5 rounded-full border border-emerald-100 backdrop-blur-md shadow-sm shadow-emerald-900/5">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 focus:outline-none ${
+                className={`relative px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 focus:outline-none ${
                   isActive
-                    ? 'text-white font-semibold'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-emerald-900 font-bold bg-emerald-100/90 border border-emerald-300/80 shadow-sm'
+                    : 'text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/70'
                 }`}
               >
-                {isActive && (
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 -z-10 animate-fade-in" />
-                )}
                 {link.label}
               </button>
             );
@@ -107,21 +103,18 @@ export default function Navbar({ onOpenResume }) {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={onOpenResume}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 hover:text-white text-xs font-medium border border-slate-700/50 transition-all duration-200 hover:border-slate-600 focus:outline-none group"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 text-xs font-semibold border border-emerald-200 shadow-sm transition-all duration-200 group"
           >
-            <FileText className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+            <FileText className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition-transform" />
             <span>Resume</span>
           </button>
 
           <button
             onClick={() => scrollToSection('contact')}
-            className="relative group overflow-hidden rounded-lg p-[1px] focus:outline-none"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-600/25 hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg group-hover:opacity-100 opacity-80 blur-[1px] transition-opacity" />
-            <div className="relative px-4 py-1.5 rounded-[7px] bg-dark-950 font-medium text-xs text-white flex items-center gap-1.5 transition-colors group-hover:bg-dark-900">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>Let's Connect</span>
-            </div>
+            <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+            <span>Let's Connect</span>
           </button>
         </div>
 
@@ -129,59 +122,58 @@ export default function Navbar({ onOpenResume }) {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={onOpenResume}
-            className="p-2 rounded-lg bg-slate-800/60 text-slate-300 hover:text-white border border-slate-700/50"
+            className="p-2 rounded-xl bg-white text-emerald-700 border border-emerald-200 shadow-sm"
             aria-label="View Resume"
           >
-            <FileText className="w-4 h-4 text-emerald-400" />
+            <FileText className="w-4 h-4 text-emerald-600" />
           </button>
           
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-dark-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none"
+            className="p-2 rounded-xl bg-white border border-emerald-200 text-slate-700 hover:text-emerald-700 shadow-sm focus:outline-none"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-emerald-700" /> : <Menu className="w-5 h-5 text-slate-700" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 mx-4 p-4 rounded-2xl bg-dark-900/95 backdrop-blur-xl border border-slate-800 shadow-2xl animate-fade-in">
-          <div className="flex flex-col gap-1 pb-3 mb-3 border-b border-slate-800">
+        <div className="md:hidden mt-2 mx-4 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-emerald-100 shadow-xl animate-fade-in">
+          <div className="flex flex-col gap-1 pb-3 mb-3 border-b border-emerald-100">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${
+                className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors text-left ${
                   activeSection === link.id
-                    ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                    : 'text-slate-700 hover:text-emerald-800 hover:bg-emerald-50/50'
                 }`}
               >
                 <span>{link.label}</span>
                 {activeSection === link.id && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-600" />
                 )}
               </button>
             ))}
           </div>
 
-          {/* Mobile Footer CTAs */}
           <div className="flex flex-col gap-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800/80 text-white text-sm font-medium border border-slate-700/60"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white text-emerald-800 text-sm font-semibold border border-emerald-200 shadow-sm"
             >
-              <FileText className="w-4 h-4 text-emerald-400" />
+              <FileText className="w-4 h-4 text-emerald-600" />
               <span>View &amp; Download Resume</span>
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-dark-950 font-semibold text-sm shadow-glow-sm"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm shadow-md shadow-emerald-600/25"
             >
               <span>Get In Touch</span>
               <ArrowRight className="w-4 h-4" />
