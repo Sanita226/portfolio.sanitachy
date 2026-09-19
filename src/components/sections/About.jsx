@@ -143,7 +143,7 @@ export default function About() {
             {/* University & Degree Callout Card with Mini Photo Avatar */}
             <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50/80 border-2 border-emerald-200 sm:col-span-2 lg:col-span-1 shadow-sm">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-400 shrink-0 shadow-xs">
+                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 shadow-md">
                   <img 
                     src={sanitaPhoto} 
                     alt="Sanita" 

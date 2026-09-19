@@ -36,9 +36,9 @@ export default {
         'blob': 'blob 7s infinite',
         'pulse-glow': 'pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 4s ease-in-out infinite',
-        'float-slow': 'float 6s ease-in-out infinite',
-        'spin-slow': 'spin 12s linear infinite',
-        'spin-reverse': 'spinReverse 14s linear infinite',
+        'gentle-float': 'gentleFloat 5s ease-in-out infinite',
+        'sheen': 'sheen 4s ease-in-out infinite',
+        'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
       },
       keyframes: {
         blob: {
@@ -55,15 +55,24 @@ export default {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
         },
-        spinReverse: {
-          'from': { transform: 'rotate(360deg)' },
-          'to': { transform: 'rotate(0deg)' },
+        gentleFloat: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        sheen: {
+          '0%': { transform: 'translateX(-150%) skewX(-20deg)' },
+          '50%, 100%': { transform: 'translateX(250%) skewX(-20deg)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.4' },
+          '50%': { transform: 'scale(1.08)', opacity: '0.75' },
         }
       },
       boxShadow: {
         'emerald-soft': '0 10px 30px -10px rgba(5, 150, 105, 0.18)',
         'emerald-glow': '0 0 25px -3px rgba(16, 185, 129, 0.35)',
         'emerald-card': '0 12px 35px -8px rgba(6, 78, 59, 0.08)',
+        'photo-luxury': '0 25px 60px -15px rgba(5, 150, 105, 0.25)',
       }
     },
   },

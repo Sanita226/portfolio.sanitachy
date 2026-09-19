@@ -135,67 +135,65 @@ export default function Hero({ onOpenResume }) {
 
           </div>
 
-          {/* Right Column: Hero Image with Luxury Green & White Animation (5 cols) */}
+          {/* Right Column: Hero Image with Borderless Luxury Style & Smooth Animations (5 cols) */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
             
-            {/* Ambient Background Glow behind photo */}
-            <div className="absolute w-72 sm:w-88 h-72 sm:h-88 bg-gradient-to-tr from-emerald-400/30 via-teal-300/30 to-green-300/20 rounded-full blur-3xl animate-pulse" />
+            {/* Soft Ambient Diffused Glow behind photo (NO border) */}
+            <div className="absolute w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-tr from-emerald-400/25 via-teal-300/20 to-emerald-200/25 rounded-full blur-3xl animate-pulse-subtle pointer-events-none" />
             
-            {/* Main Animated Photo Container */}
-            <div className="relative group animate-float">
+            {/* Main Floating Photo Container (Completely Borderless) */}
+            <div className="relative group animate-gentle-float">
               
-              {/* Rotating Animated Gradient Ring */}
-              <div className="absolute -inset-2.5 rounded-[36px] bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 rounded-3xl opacity-75 blur-sm group-hover:opacity-100 transition-opacity animate-spin-slow" />
-              
-              {/* White Inner Frame Border */}
-              <div className="relative p-2.5 sm:p-3 bg-white rounded-[32px] shadow-2xl shadow-emerald-950/15 border-2 border-emerald-100">
+              {/* Borderless Photo Frame with Luxury Soft Shadow */}
+              <div className="relative w-64 sm:w-80 h-84 sm:h-[430px] rounded-[32px] overflow-hidden shadow-photo-luxury bg-emerald-950/5 transform transition-all duration-500 group-hover:scale-[1.02]">
                 
-                {/* Photo Aspect Ratio Wrapper */}
-                <div className="relative w-64 sm:w-80 h-84 sm:h-[430px] rounded-[24px] overflow-hidden bg-emerald-900/10">
-                  <img
-                    src={sanitaPhoto}
-                    alt="Sanita Chaudhary - BSc. CSIT Student & Developer"
-                    className="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
-                  />
+                {/* Photo */}
+                <img
+                  src={sanitaPhoto}
+                  alt="Sanita Chaudhary - BSc. CSIT Student & Developer"
+                  className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105"
+                />
 
-                  {/* Gentle gradient overlay on bottom of photo */}
-                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-emerald-950/80 via-emerald-950/30 to-transparent flex flex-col justify-end p-4 text-white">
-                    <p className="font-heading font-bold text-base sm:text-lg leading-tight">
-                      Sanita Chaudhary
-                    </p>
-                    <p className="text-xs font-mono text-emerald-300 mt-0.5">
-                      BSc. CSIT • Godawari College
-                    </p>
-                  </div>
+                {/* Shimmer Light Sheen Sweep Effect on hover */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full -translate-x-full group-hover:animate-sheen" />
+
+                {/* Soft natural gradient overlay on bottom of photo for text legibility */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-emerald-950/85 via-emerald-950/30 to-transparent flex flex-col justify-end p-5 text-white pointer-events-none">
+                  <p className="font-heading font-extrabold text-base sm:text-lg leading-tight tracking-tight">
+                    Sanita Chaudhary
+                  </p>
+                  <p className="text-xs font-mono text-emerald-300 mt-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <span>BSc. CSIT • Godawari College, TU</span>
+                  </p>
                 </div>
-
               </div>
 
-              {/* Floating Badge 1: Education (Top Right) */}
-              <div className="absolute -top-4 -right-4 sm:-right-8 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border-2 border-emerald-200 shadow-lg shadow-emerald-900/10 flex items-center gap-2 transform hover:scale-105 transition-transform animate-float [animation-delay:1s]">
+              {/* Floating Badge 1: Education (Top Right) - Clean, borderless shadow */}
+              <div className="absolute -top-3 -right-3 sm:-right-6 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-lg shadow-emerald-950/10 flex items-center gap-2.5 transform hover:scale-105 transition-all duration-300 animate-float [animation-delay:1s]">
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700">
                   <GraduationCap className="w-4 h-4" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] font-mono text-slate-500 font-bold uppercase">Degree</p>
-                  <p className="text-xs font-bold text-slate-800">BSc. CSIT (6th Sem)</p>
+                  <p className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">Degree</p>
+                  <p className="text-xs font-extrabold text-slate-800">BSc. CSIT 6th Sem</p>
                 </div>
               </div>
 
-              {/* Floating Badge 2: Tech Focus (Bottom Left) */}
-              <div className="absolute -bottom-5 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border-2 border-emerald-200 shadow-lg shadow-emerald-900/10 flex items-center gap-2 transform hover:scale-105 transition-transform animate-float [animation-delay:2s]">
-                <div className="w-8 h-8 rounded-xl bg-emerald-600 flex items-center justify-center text-white">
+              {/* Floating Badge 2: Tech Focus (Bottom Left) - Clean, borderless shadow */}
+              <div className="absolute -bottom-4 -left-3 sm:-left-6 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-lg shadow-emerald-950/10 flex items-center gap-2.5 transform hover:scale-105 transition-all duration-300 animate-float [animation-delay:2.5s]">
+                <div className="w-8 h-8 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-sm">
                   <Code2 className="w-4 h-4" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] font-mono text-emerald-700 font-bold uppercase">Specialty</p>
-                  <p className="text-xs font-bold text-slate-800">Frontend &amp; Full-Stack</p>
+                  <p className="text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-wider">Specialty</p>
+                  <p className="text-xs font-extrabold text-slate-800">Frontend &amp; Full-Stack</p>
                 </div>
               </div>
 
-              {/* Floating Badge 3: Active Status (Top Left) */}
-              <div className="absolute top-1/2 -left-6 sm:-left-10 -translate-y-1/2 hidden sm:flex items-center gap-2 bg-emerald-800 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md shadow-emerald-900/20 animate-float [animation-delay:3s]">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              {/* Floating Status Pill: Active (Top Left) */}
+              <div className="absolute top-1/2 -left-5 sm:-left-9 -translate-y-1/2 hidden sm:flex items-center gap-2 bg-emerald-700 text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-lg shadow-emerald-900/20 animate-float [animation-delay:3.5s]">
+                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping" />
                 <span>Open for Roles</span>
               </div>
 
